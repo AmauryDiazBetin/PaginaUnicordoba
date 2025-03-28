@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universidad de Córdoba</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-green: #4CAF50;
+            --light-gray: #f8f8f8;
+            --text-gray: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .lineainicialverde {
+            width: 100%; 
+            height: 2px; 
+            background-color: green; 
+            position: fixed; 
+            top: 0; 
+            left: 0;
+            z-index: 1000; 
+        }
+
+        .top-nav {
+            background-color: var(--light-gray);
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .top-nav-link {
+            color: green;
+            font-size: 14px;
+            border-right: 1px solid #cccccc;
+            padding: 0 10px;
+        }
+
+        .top-nav-link:last-child {
+            border-right: none;
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-icons i {
+            color: #4CAF50;
+            font-size: 15px;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1500px;
+            margin: 0px;
+        }
+
+        .logo img {
+            height: 70px;
+            display: flex;
+            margin-right: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .hero-section {
+            width: 100%;
+            max-height: 600px;
+            overflow: hidden;
+        }
+
+        .hero-section img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .statistics-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 30px 15px;
+            background-color: #f9f9f9;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .stat-icon {
+            color: var(--primary-green);
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            text-align: center;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .image-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-green);
+            margin: 20px 0;
+        }
+
+        .publications-grid, .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .publication-item, .channel-item {
+            width: 80%;
+            transition: transform 0.3s ease;
+        }
+
+        .publication-item:hover, .channel-item:hover {
+            transform: scale(1.05);
+        }
+
+        .radio-banner, .footer-banner {
+            width: 100%;
+            max-height: 600px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .radio-banner img, .footer-banner img {
+            width: 100%;
+            height: auto;
+            max-height: 1000px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .white-space-section {
+            background-color: white;
+            height: 100px; 
+            width: 100%;
+        }
+
+        .encuentranos {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #f8f8f8;
+        }
+
+        .encuentranos-title {
+            display: flex;
+            padding-left: 15px;
+            margin: 10px;
+            color: #000000;
+            font-size: 16px;
+        }
+
+        .social-footer-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-left: 20px;
+        }
+
+        .social-icon {
+            text-decoration: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icon.facebook { background-color: #3b5998; }
+        .social-icon.twitter { background-color: #1da1f2; }
+        .social-icon.youtube { background-color: #ff0000; }
+        .social-icon.instagram { background-color: #c32aa3; }
+        .social-icon.whatsapp { background-color: #25d366; }
+        .social-icon.email { background-color: #666; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .dark {
+            color: #000;
+            font-size: 13px;
+        }
+
+        .light {
+            color: #666;
+            font-size: 13px;
+        }
+
+        .footer-contact {
+            background-color: #f0f0f0;
+            padding: 5px 5px;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .footer-divider-light {
+            width: 100%;
+            height: 1px;
+            background-color: #d7d7d7;
+            margin: 15px 0;
+        }
+
+        .footer-divider {
+            width: 100%;
+            height: 1px;
+            background-color: #000;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .radio-banner, .footer-banner {
+                max-height: 250px;
+            }
+
+            .radio-banner img, .footer-banner img {
+                max-height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <nav class="top-nav">
+            <div class="lineainicialverde"></div>
+            
+            <div class="top-nav-links">
+                <span class="top-nav-link">Aspirantes</span>
+                <span class="top-nav-link">Estudiantes</span>
+                <span class="top-nav-link">Egresados</span>
+                <span class="top-nav-link">Docentes</span>
+                <span class="top-nav-link">Administrativos</span>
+                <span class="top-nav-link">Bienestar</span>
+                <span class="top-nav-link">Campus Virtual</span>
+                <span class="top-nav-link">Academusoft</span>
+                <span class="top-nav-link">Centro de Idiomas</span>
+                <span class="top-nav-link">Biblioteca</span>
+                <span class="top-nav-link">Pagos en línea</span>
+                <span class="top-nav-link">Gov.co</span>
+                <span class="top-nav-link">Transparencia</span>
+                
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-youtube"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-tiktok"></i>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://www.unicordoba.edu.co/wp-content/uploads/2018/11/unicordoba_logo1.png" alt="Universidad de Córdoba Logo">
+            </div>
+            <div class="nav-links">
+                <a href="./labseinstitutos1.html" class="nav-link">INSTITUCIONAL</a>
+                    <a href="./academiafacultadingenieria1.html" class="nav-link">ACADEMIA</a>
+                    <a href="./investigacion1.html" class="nav-link">INVESTIGACION</a>
+                    <a href="./extensiones1.html" class="nav-link">EXTENSIÓN</a>
+                    <a href="./admisiones1.html" class="nav-link">ADMISIONES</a>
+                    <a href="#" class="nav-link">INTERNACIONALIZACIÓN</a>
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <img src="./imagenes/imagen1 pagina principal unicor.png" alt="Universidad de Córdoba Hero Image">
+    </section>
+
+    <section class="statistics-section">
+        <div class="stat-item">
+            <i class="stat-icon fa-solid fa-graduation-cap"></i>
+            <div class="stat-number">015</div>
+            <div class="stat-label">Programas con acreditación alta calidad</div>
+        </div>
+        <div class="stat-item">
+            <i class="stat-icon fa-solid fa-globe"></i>
+            <div class="stat-number">02</div>
+            <div class="stat-label">Programas con acreditación internacional</div>
+        </div>
+        <div class="stat-item">
+            <i class="stat-icon fa-solid fa-id-card"></i>
+            <div class="stat-number">14669</div>
+            <div class="stat-label">Total estudiantes matriculados</div>
+        </div>
+        <div class="stat-item">
+            <i class="stat-icon fa-solid fa-house-user"></i>
+            <div class="stat-number">2023</div>
+            <div class="stat-label">Acreditación Alta Calidad renovación</div>
+        </div>
+        <div class="stat-item">
+            <i class="stat-icon fa-solid fa-chart-line"></i>
+            <div class="stat-number">Consulta</div>
+            <div class="stat-label">Nuestras Estadísticas</div>
+        </div>
+    </section>
+
+    <section class="content-grid">
+        <div class="image-container">
+            <img src="./imagenes/imagen2.png" alt="Movilidad académica">
+            <div class="image-text">
+                Estudiantes de Unicórdoba expanden sus horizontes con movilidad académica internacional
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="./imagenes/imagen3.png" alt="Internacionalización">
+            <div class="image-text">
+                La Universidad de Córdoba impulsa su Política de Internacionalización con nuevos intercambios
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="./imagenes/imagen4.png" alt="Lazos académicos">
+            <div class="image-text">
+                Unicórdoba se convierte en núcleo para fortalecer los lazos académicos entre el Gobierno de Brasil, universidades y entidades de educación superior de Montería
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Publicaciones</h2>
+        <div class="publications-grid">
+            <img src="./imagenes/imagen5.png" alt="Libro 1" class="publication-item">
+            <img src="./imagenes/i6.png" alt="Libro 2" class="publication-item">
+            <img src="./imagenes/i7.png" alt="Libro 3" class="publication-item">
+        </div>
+    </section>
+
+    <section>
+        <h1 class="section-title">Nuestro Canal</h1>
+        <div class="channels-grid">
+            <img src="./imagenes/i8.png" alt="SUE Channel" class="channel-item">
+            <img src="./imagenes/i9.png" alt="EnlaU Unicórdoba" class="channel-item">
+            <img src="./imagenes/i10.png" alt="Al tablero con el profe Jairo" class="channel-item">
+        </div>
+    </section>
+
+    <section class="white-space-section"></section>
+
+    <section class="radio-banner">
+        <img src="./imagenes/radiofinal.png" alt="Unicórdoba Estéreo 90.0 FM">
+    </section>
+
+    <section class="white-space-section"></section>
+    <section class="white-space-section"></section>
+
+    <section class="footer-banner">
+        <img src="./imagenes/banner.png" alt="Unicórdoba Footer Links">
+    </section>
+
+    <section class="white-space-section"></section>
+
+    <section class="encuentranos">
+        <h3 class="encuentranos-title">Encuéntranos</h3>
+        <div class="social-footer-icons">
+            <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-icon email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <section class="white-space-section"></section>
+
+    <footer>
+        <div class="footer-divider-light"></div>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <span class="dark">Pregrado Postgrado</span>
+                <span class="light">Campus virtual <span class="dark"> – </span>Repositorio</span>
+                <span class="light">Tableau – Nuestras Cifras</span>
+                <span class="light">Bienestar universitario</span>
+                <span class="light">Atención al Ciudadano</span>
+            </div>
+            
+            <div class="footer-col">
+                <span class="dark">Mesa de ayuda – <span class="light">ORFEO</span></span>
+                <span class="dark">SIGEC – <span class="light">Documentos</span></span>
+                <span class="dark">PQRSyD – <span class="light">Indicadores</span></span>
+                <span class="light">Transparencia y acceso a la información</span>
+            </div>
+            
+            <div class="footer-col">
+                <span class="light">Comunicaciones <span class="dark">Dependencias</span></span>
+                <span class="dark">Glosario – Bibliotecas</span>
+                <span class="light">Revistas – OPCA – IIBT</span>
+                <span class="dark">Gestión Documental</span>
+                <span class="light">Boletines – Laboratorios</span>
+                <span class="light">Imprenta Nacional</span>
+            </div>
+          
+            <div class="footer-col">
+                <span class="dark">Contratación</span>
+                <span class="dark">Mecanismos de Control</span>
+                <span class="light">Planeación – Servicios TIC</span>
+                <span class="dark">Información financiera</span>
+                <span class="dark">Internacionalización</span>
+            </div>
+            
+            <div class="footer-col">
+                <span class="light">Equidad social</span>
+                <span class="dark">Derechos pecuniarios</span>
+                <span class="dark">Rendición de cuentas</span>
+                <span class="dark">Córdoba Transformada</span>
+                <span class="dark">Todos seguros y saludables</span>
+                <span class="light">Ambiente U</span>
+            </div>
+    
+            <div class="footer-col">
+                <span class="dark">Convocatorias</span>
+                <span class="dark">Trámites</span>
+                <span class="light">Notificaciones judiciales</span>
+                <span class="dark">Unidad de salud</span>
+                <span class="light">Todo sobre Covid-19</span>
+                <span class="light">SUIN – EKGGLI</span>
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+        <div class="footer-contact">
+            Carrera 6 No. 77-305 Montería - Córdoba, Colombia  |  Código Postal: 230002 PBX: 57-6-4786236  |  NIT: 891080013-1  |   contacto@correo.unicordoba.edu.co
+            <br>
+            La Universidad de Córdoba, es una Institución de educación superior sujeta a inspección y vigilancia por el Ministerio de Educación Nacional.
+            <br>
+            Mapa de sitio, Ley de protección de datos, Política de privacidad, Transparencia y acceso a la información, PQRSyD, contacto@correo.unicordoba.edu.co - notificacionesjudiciales@correo.unicordoba.edu.co.
+        </div>
+    </footer>
+</body>
+</html>

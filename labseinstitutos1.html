@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorios e intitutos</title>
+</head>
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+<style>
+:root {
+            --primary-green: #4CAF50;
+            --light-gray: #f8f8f8;
+            --gray: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .lineainicialverde {
+            width: 100%; 
+            height: 2px; 
+            background-color: green; 
+            position: fixed; 
+            top: 0; 
+            left: 0;
+            z-index: 1000; 
+        }
+        .top-nav {
+            background-color: var(--light-gray);
+            padding: 10px 0;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             gap: 20px;
+       
+        }
+
+        .top-nav-links {
+              display: flex;
+             justify-content: center;
+             gap: 5px;
+        }
+
+        .top-nav-link {
+            color: green;
+            font-size: 14px;
+            border-right: 1px solid #cccccc;
+            padding: 0 10px;
+        }
+
+        .top-nav-link:last-child {
+            border-right: none;
+        }
+
+        .social-icons {
+             display: flex;
+             align-items: center;
+             gap: 10px;
+            }
+
+        .social-icons i {
+            color: #4CAF50;
+            font-size: 15px;
+            align-items: center; 
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            gap: 40px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-container1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1500px;
+            margin: 0px;
+        }
+
+        .logo img{
+            height: 70px;
+            display: flex;
+            margin-right: 50px;
+        }
+
+        .top-nav {
+            background-color: var(--light-gray);
+            padding: 10px 0;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             gap: 20px;
+       
+        }
+
+        .top-nav-links {
+              display: flex;
+             justify-content: center;
+             gap: 5px;
+        }
+
+        .top-nav-link {
+            color: green;
+            font-size: 14px;
+            border-right: 1px solid #cccccc;
+            padding: 0 10px;
+        }
+
+        .top-nav-link:last-child {
+            border-right: none;
+        }
+
+        .social-icons {
+             display: flex;
+             align-items: center;
+             gap: 10px;
+            }
+
+        .social-icons i {
+            color: #4CAF50;
+            font-size: 15px;
+            align-items: center; 
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1500px;
+            margin: 0px;
+        }
+
+        .logo img{
+            height: 70px;
+            display: flex;
+            margin-right: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .hero-section {
+            width: 100%;
+            max-height: 600px;
+            overflow: hidden;
+        }
+
+        .hero-section img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .hero-section img {
+            width: 100%;
+            height: 650px;
+            object-fit: cover;
+        }
+        .section-title {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .laboratories-container1 {
+            display: flex;
+            gap: 20px;
+        }
+
+        .lab-card {
+            border: 1px solid #ddd;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lab-card img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+        }
+
+        .lab-card-logo {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+
+        .lab-description {
+            padding: 10px;
+        text-align: center;
+            color: #666;
+        }
+
+        .top-navigation {
+            background-color: white;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .nav-container1 {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .nav-item {
+            color: #333;
+        -decoration: none;
+            font-size: 12px;
+            padding: 0 5px;
+            border-right: 1px solid #cccccc;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item:last-child {
+            border-right: none;
+        }
+
+        .nav-item:hover {
+            color: #4CAF50;
+        }
+
+        .active {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .section-title {
+            background-color: white;
+            color: #4CAF50;
+        -align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .container1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .green-line {
+            flex-grow: 1;
+            height: 2px;
+            background-color: green;
+        }
+
+        .centered {
+            margin: 0 15px;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background-color: #f8f8f8;
+        }
+
+        .nav-button {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            color: #333;
+            padding: 8px 12px;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #f0f0f0;
+            color: #4CAF50;
+        }
+        .header-container {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .header-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        .green-underline {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background-color: green;
+            width: 100%;
+        }
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 10px;
+        }
+        .image-container img {
+            max-width: 22%; 
+            height: auto;
+            object-fit: contain;
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .footer-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.column-left, .column-right {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+
+.column-right {
+  display: flex;
+  flex-direction: column;
+  width: 48%;}
+
+.column-left span {
+  margin-bottom: 3px;
+  font-size: 0.9em;
+  margin-left: 250px;
+}
+.column-right span {
+  margin-bottom: 8px;
+}
+
+.footer-line {
+-align: center;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  font-style: italic;
+}
+.white-space-section {
+            background-color: white;
+            height: 100px; 
+            width: 100%;}
+
+ .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.footer-col h4 {
+  margin: 0 0 8px 0;
+  color: #000;
+  font-size: 20px;
+}
+
+.dark {
+  color: #000;
+  font-size: 13px;
+}
+
+.light {
+  color: #666;
+  font-size: 13px;
+}
+.footer-contact {
+            background-color: #f0f0f0;
+            padding: 5px 5px;
+            text-align: center;
+            font-size: 11px;
+        }
+        .footer-divider-light {
+  width: 100%;
+  height: 1px;
+  background-color: #d7d7d7;
+  margin: 15px 0;
+}
+        .footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  margin: 10px 0;
+}
+
+</style>
+    <section>
+        <nav class="top-nav">
+            <div class="lineainicialverde"></div>
+            
+            <div class="top-nav-links">
+                <span class="top-nav-link">Aspirantes</span>
+                <span class="top-nav-link">Estudiantes</span>
+                <span class="top-nav-link">Egresados</span>
+                <span class="top-nav-link">Docentes</span>
+                <span class="top-nav-link">Administrativos</span>
+                <span class="top-nav-link">Bienestar</span>
+                <span class="top-nav-link">Campus Virtual</span>
+                <span class="top-nav-link">Academusoft</span>
+                <span class="top-nav-link">Centro de Idiomas</span>
+                <span class="top-nav-link">Biblioteca</span>
+                <span class="top-nav-link">Pagos en línea</span>
+                <span class="top-nav-link">Gov.co</span>
+                <span class="top-nav-link">Transparencia</span>
+                
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-youtube"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-tiktok"></i>
+                </div>
+            </div>
+        </nav>
+    </section>
+        <nav class="main-nav">
+            <div class="nav-container1">
+                <div class="logo">
+                    <img src="https://www.unicordoba.edu.co/wp-content/uploads/2018/11/unicordoba_logo1.png" alt="Universidad de Córdoba Logo">
+                </div>
+                <div class="nav-links">
+                    <a href="./labseinstitutos1.html" class="nav-link">INSTITUCIONAL</a>
+                    <a href="./academiafacultadingenieria1.html" class="nav-link">ACADEMIA</a>
+                    <a href="./investigacion1.html" class="nav-link">INVESTIGACION</a>
+                    <a href="./extensiones1.html" class="nav-link">EXTENSIÓN</a>
+                    <a href="./admisiones1.html" class="nav-link">ADMISIONES</a>
+                    <a href="#" class="nav-link">INTERNACIONALIZACIÓN</a>
+                    <div class="search-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    <section>
+
+        <section>
+
+<div class="hero-section">
+    <img src="https://burbujapolitica.com/wp-content/uploads/2024/01/IMG_20240126_121157_712-1024x571.jpg"
+     width= "400px" height="250px"  alt="foto de campo">
+</div>
+
+
+<div class="container1">
+    <div class="green-line"></div>
+    <div class="centered">Atencion al Ciudadano</div>
+    <div class="green-line"></div>
+</div>
+
+<div class="nav-container">
+    <a href="#" class="nav-button">Inicio</a>
+    <a href="#" class="nav-button">Atención al Ciudadano</a>
+    <a href="#" class="nav-button">Protocolo de Atención al Ciudadano</a>
+    <a href="#" class="nav-button">Documentos</a>
+    <a href="#" class="nav-button">Preguntas Frecuentes</a>
+    <a href="#" class="nav-button">Trámites</a>
+    <a href="#" class="nav-button">PQRsyD</a>
+    <a href="#" class="nav-button">Dependencias</a>
+</div>
+
+<div style="background-color: #f0f0f0; color: #4CAF50;text-align: center; padding: 10px;">Laboratorios e institutos</div>
+
+<div class="header-container">
+    <h1 class="header-title">Laboratorios, Institutos y Revistas</h1>
+    <div class="green-underline"></div>
+</div>
+
+
+<div class="image-container">
+    <img src="./imagenes/l1.png" alt="Image 1">
+    <img src="./imagenes/l2.png" alt="Image 2">
+    <img src="./imagenes/l3.png" alt="Image 3">
+    <img src="./imagenes/l4.png" alt="Image 4">
+</div>
+<section>
+<section><div class="white-space-section"></div> </section>
+
+    <div class="footer-columns">
+        <div class="column-left">
+          <span><i class="fa-solid fa-circle"></i> Grupo de Aguas, Química y Ambiental – GAQAA</span>
+          <span><i class="fa-solid fa-circle"></i> Instituto de Investigaciones Biológicas del Trópico – IIBT</span>
+          <span><i class="fa-solid fa-circle"></i> Instituto de Biotecnología Aplicada – IBAC</span>
+          <span><i class="fa-solid fa-circle"></i> Instituto Regional del Agua</span>
+          <span><i class="fa-solid fa-circle"></i> Laboratorio de Aguas</span>
+          <span><i class="fa-solid fa-circle"></i> Laboratorio de Suelos y Aguas</span>
+          <span><i class="fa-solid fa-circle"></i> Laboratorio de Toxicología y Gestión Ambiental</span>
+          <span><i class="fa-solid fa-circle"></i> Laboratorio Integrado de Ingeniería Ambiental</span>
+          <span><i class="fa-solid fa-circle"></i> Laboratorios Programa de Ingeniería de Alimentos</span>
+          <span><i class="fa-solid fa-circle"></i> Laboratorios Programa de Ingeniería de Sistemas</span>
+          <span><i class="fa-solid fa-circle"></i> Revistas Institucionales</span>
+          <span><i class="fa-solid fa-circle"></i> OPCA</span>
+        </div>
+        <div class="column-right">
+            <span>Lineamientos para la adecuada gestión de laboratorios <i class="fa-solid fa-share"></i> </span>
+        </div>
+      </div>
+      <section><div class="white-space-section"></div> </section>
+
+<section> <div class="footer-divider-light"></div></section>
+      <nav>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <span class="dark">Pregrado Postgrado</span>
+          <span class="light">Campus virtual <span class="dark"> – </span>Repositorio</span>
+          <span class="light">Tableau – Nuestras Cifras</span>
+          <span class="light">Bienestar universitario</span>
+          <span class="light">Atención al Ciudadano</span>
+        </div>
+        
+        <div class="footer-col">
+          <span class="dark">Mesa de ayuda – <span class="light">ORFEO</span></span>
+          <span class="dark">SIGEC – <span class="light">Documentos</span></span>
+          <span class="dark">PQRSyD – <span class="light">Indicadores</span></span>
+          <span class="light">Transparencia y acceso a la información</span>
+        </div>
+        
+        <div class="footer-col">
+          <span class="light">Comunicaciones <span class="dark">Dependencias</span></span>
+          <span class="dark">Glosario – Bibliotecas</span>
+          <span class="light">Revistas – OPCA – IIBT</span>
+          <span class="dark">Gestión Documental</span>
+          <span class="light">Boletines – Laboratorios</span>
+          <span class="light">Imprenta Nacional</span>
+        </div>
+      
+        <div class="footer-col">
+          <span class="dark">Contratación</span>
+          <span class="dark">Mecanismos de Control</span>
+          <span class="light">Planeación – Servicios TIC</span>
+          <span class="dark">Información financiera</span>
+          <span class="dark">Internacionalización</span>
+        </div>
+        
+        <div class="footer-col">
+          <span class="light">Equidad social</span>
+          <span class="dark">Derechos pecuniarios</span>
+          <span class="dark">Rendición de cuentas</span>
+          <span class="dark">Córdoba Transformada</span>
+          <span class="dark">Todos seguros y saludables</span>
+          <span class="light">Ambiente U</span>
+        </div>
+  
+        <div class="footer-col">
+          <span class="dark">Convocatorias</span>
+          <span class="dark">Trámites</span>
+          <span class="light">Notificaciones judiciales</span>
+          <span class="dark">Unidad de salud</span>
+          <span class="light">Todo sobre Covid-19</span>
+          <span class="light">SUIN – EKGGLI</span>
+        </div>
+      </div>
+</nav>
+
+<div class="footer-divider"></div>
+<div class="footer-contact">
+    <nav>
+    Carrera 6 No. 77-305 Montería - Córdoba, Colombia  |  Código Postal: 230002 PBX: 57-6-4786236  |  NIT: 891080013-1  |   contacto@correo.unicordoba.edu.co
+    <br>
+    La Universidad de Córdoba, es una Institución de educación superior sujeta a inspección y vigilancia por el Ministerio de Educación Nacional.
+    <br>
+    Mapa de sitio, Ley de protección de datos, Política de privacidad, Transparencia y acceso a la información, PQRSyD, contacto@correo.unicordoba.edu.co - notificacionesjudiciales@correo.unicordoba.edu.co.
+    <nav>
+</div>
+</footer>
+
+</body>
+</html>
+</section>

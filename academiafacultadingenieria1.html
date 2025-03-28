@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universidad de Córdoba - Facultad de Ingenierías</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #4CAF50;
+            --light-gray: #f8f8f8;
+            --text-gray: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .top-nav {
+            background-color: var(--light-gray);
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        .lineainicialverde {
+            width: 100%; 
+            height: 2px; 
+            background-color: green; 
+            position: absolute;
+            top: 0; 
+            left: 0;
+            z-index: 1000; 
+        }
+
+        .top-nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .top-nav-link {
+            color: green;
+            font-size: 14px;
+            border-right: 1px solid #cccccc;
+            padding: 0 10px;
+        }
+
+        .top-nav-link:last-child {
+            border-right: none;
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-icons i {
+            color: #4CAF50;
+            font-size: 15px;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-container1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .logo img {
+            height: 70px;
+            margin-right: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-weight: 600;
+            color: black;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .container1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .green-line {
+            flex-grow: 1;
+            height: 2px;
+            background-color: green;
+        }
+
+        .centered {
+            margin: 0 15px;
+            color: #000000;
+            font-size: 25px;
+        }
+
+        .lime-line {
+            width: 100%;
+            height: 7px;
+            background-color: #67c100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            padding: 10px;
+            background-color: #f8f8f8;
+        }
+
+        .nav-button-inicio {
+            background-color: #ffffff;
+            border: 1px solid #e3dede;
+            color: #67c100;
+            padding: 6px 10px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-button-normal {
+            background-color: #e8e8e8;
+            border: 1px solid #e8e8e8;
+            color: #000000;
+            padding: 6px 10px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .tresenunaimg, .tresimg {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .tresenunaimg img, .tresimg img {
+            max-width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .header-container {
+            position: relative;
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
+        .header-title2 {
+            font-size: 24px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .green-underline {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            height: 3px;
+            background-color: green;
+            width: 100%;
+        }
+
+        .mascontenido {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 40px;
+            background-color: #f2f1f0;
+            color: #4a4a4a;
+            font-weight: 600;
+            font-size: 10px;
+            border: none;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .footer-divider-light {
+            width: 100%;
+            height: 1px;
+            background-color: #d7d7d7;
+            margin: 15px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .footer-col span {
+            font-size: 13px;
+        }
+
+        .dark {
+            color: #000;
+            font-weight: bold;
+        }
+
+        .light {
+            color: #666;
+        }
+
+        .footer-contact {
+            background-color: #f0f0f0;
+            padding: 15px;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .white-space-section {
+            background-color: white;
+            height: 100px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="lineainicialverde"></div>
+        <div class="top-nav-links">
+            <span class="top-nav-link">Aspirantes</span>
+            <span class="top-nav-link">Estudiantes</span>
+            <span class="top-nav-link">Egresados</span>
+            <span class="top-nav-link">Docentes</span>
+            <span class="top-nav-link">Administrativos</span>
+            <span class="top-nav-link">Bienestar</span>
+            <span class="top-nav-link">Campus Virtual</span>
+            <span class="top-nav-link">Academusoft</span>
+            <span class="top-nav-link">Centro de Idiomas</span>
+            <span class="top-nav-link">Biblioteca</span>
+            <span class="top-nav-link">Pagos en línea</span>
+            <span class="top-nav-link">Gov.co</span>
+            <span class="top-nav-link">Transparencia</span>
+            
+            <div class="social-icons">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-tiktok"></i>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="main-nav">
+        <div class="nav-container1">
+            <div class="logo">
+                <img src="https://www.unicordoba.edu.co/wp-content/uploads/2018/11/unicordoba_logo1.png" alt="Universidad de Córdoba Logo">
+            </div>
+            <div class="nav-links">
+                    <a href="./labseinstitutos1.html" class="nav-link">INSTITUCIONAL</a>
+                    <a href="./academiafacultadingenieria1.html" class="nav-link">ACADEMIA</a>
+                    <a href="./investigacion1.html" class="nav-link">INVESTIGACION</a>
+                    <a href="./extensiones1.html" class="nav-link">EXTENSIÓN</a>
+                    <a href="./admisiones1.html" class="nav-link">ADMISIONES</a>
+                    <a href="#" class="nav-link">INTERNACIONALIZACIÓN</a>
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        <div><img src="./imagenes/facultaddeingenieria.png" alt="Facultad de Ingenierías"></div>
+    </section>
+
+    <div class="container1">
+        <div class="green-line"></div>
+        <div class="centered">Facultad de Ingenierías</div>
+        <div class="green-line"></div>
+    </div>
+
+    <div class="lime-line"></div>
+
+    <div class="nav-container">
+        <a href="#" class="nav-button-inicio">Inicio</a>
+        <a href="#" class="nav-button-normal">Atención al Ciudadano</a>
+        <a href="#" class="nav-button-normal">Protocolo de Atención al Ciudadano</a>
+        <a href="#" class="nav-button-normal">Documentos</a>
+        <a href="#" class="nav-button-normal">Preguntas Frecuentes</a>
+        <a href="#" class="nav-button-normal">Trámites</a>
+        <a href="#" class="nav-button-normal">PQRsyD</a>
+        <a href="#" class="nav-button-normal">Dependencias</a>
+    </div>
+
+    <!-- Image Sections -->
+    <nav>
+        <div class="tresenunaimg"><img src="./imagenes/tresenuna.png" alt="tres en una"></div>
+    </nav>
+
+    <div class="header-container">
+        <div class="header-title2">
+            Noticias de la Facultad
+            <div class="green-underline"></div>
+        </div>
+    </div>
+
+    <nav>
+        <div class="tresimg"><img src="./imagenes/3en1-2.png" alt="Noticia 1"></div>
+        <div class="tresimg"><img src="./imagenes/3en1-3.png" alt="Noticia 2"></div>
+    </nav>
+
+    <button class="mascontenido">LOAD MORE POSTS</button>
+
+    <section class="white-space-section"></section>
+
+    <footer>
+        <div class="footer-divider-light"></div>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <span class="dark">Pregrado Postgrado</span>
+                <span class="light">Campus virtual – Repositorio</span>
+                <span class="light">Tableau – Nuestras Cifras</span>
+                <span class="light">Bienestar universitario</span>
+                <span class="light">Atención al Ciudadano</span>
+            </div>
+            
+            <div class="footer-col">
+                <span class="dark">Mesa de ayuda – <span class="light">ORFEO</span></span>
+                <span class="dark">SIGEC – <span class="light">Documentos</span></span>
+                <span class="dark">PQRSyD – <span class="light">Indicadores</span></span>
+                <span class="light">Transparencia y acceso a la información</span>
+            </div>
+            
+            <div class="footer-col">
+                <span class="light">Comunicaciones <span class="dark">Dependencias</span></span>
+                <span class="dark">Glosario – Bibliotecas</span>
+                <span class="light">Revistas – OPCA – IIBT</span>
+                <span class="dark">Gestión Documental</span>
+                <span class="light">Boletines – Laboratorios</span>
+                <span class="light">Imprenta Nacional</span>
+            </div>
+    
+            <div class="footer-col">
+                <span class="dark">Contratación</span>
+                <span class="dark">Mecanismos de Control</span>
+                <span class="light">Planeación – Servicios TIC</span>
+                <span class="dark">Información financiera</span>
+                <span class="dark">Internacionalización</span>
+            </div>
+            
+            <div class="footer-col">
+                <span class="light">Equidad social</span>
+                <span class="dark">Derechos pecuniarios</span>
+                <span class="dark">Rendición de cuentas</span>
+                <span class="dark">Córdoba Transformada</span>
+                <span class="dark">Todos seguros y saludables</span>
+                <span class="light">Ambiente U</span>
+            </div>
+    
+            <div class="footer-col">
+                <span class="dark">Convocatorias</span>
+                <span class="dark">Trámites</span>
+                <span class="light">Notificaciones judiciales</span>
+                <span class="dark">Unidad de salud</span>
+                <span class="light">Todo sobre Covid-19</span>
+                <span class="light">SUIN – EKGGLI</span>
+            </div>
+        </div>
+
+        <div class="footer-contact">
+            Carrera 6 No. 77-305 Montería - Córdoba, Colombia | Código Postal: 230002 PBX: 57-6-4786236 | NIT: 891080013-1 | contacto@correo.unicordoba.edu.co
+            <br>
+            La Universidad de Córdoba, es una Institución de educación superior sujeta a inspección y vigilancia por el Ministerio de Educación Nacional.
+            <br>
+            Mapa de sitio, Ley de protección de datos, Política de privacidad, Transparencia y acceso a la información, PQRSyD, contacto@correo.unicordoba.edu.co - notificacionesjudiciales@correo.unicordoba.edu.co
+        </div>
+    </footer>
+</body>
+</html>
